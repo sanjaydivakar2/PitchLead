@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 239 84% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 239 84% 67%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom PitchLead Design System */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .bg-gradient-primary {
+    @apply bg-gradient-to-br from-primary to-primary-dark;
+  }
+  
+  .bg-gradient-accent {
+    @apply bg-gradient-to-br from-accent to-primary;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .glass-effect {
+    @apply backdrop-blur-sm bg-white/10 border border-white/20;
+  }
+  
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.2s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.2s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slide-down 0.2s ease-out;
+  }
+}
+
+/* Typography Scale */
+@layer components {
+  .text-display-2xl {
+    @apply text-5xl font-display font-bold tracking-tight sm:text-6xl;
+  }
+  
+  .text-display-xl {
+    @apply text-4xl font-display font-bold tracking-tight sm:text-5xl;
+  }
+  
+  .text-display-lg {
+    @apply text-3xl font-display font-bold tracking-tight sm:text-4xl;
+  }
+  
+  .text-display-md {
+    @apply text-2xl font-display font-bold tracking-tight sm:text-3xl;
+  }
+  
+  .text-display-sm {
+    @apply text-xl font-display font-semibold tracking-tight sm:text-2xl;
+  }
+  
+  .text-body-lg {
+    @apply text-lg leading-relaxed;
+  }
+  
+  .text-body-md {
+    @apply text-base leading-relaxed;
+  }
+  
+  .text-body-sm {
+    @apply text-sm leading-relaxed;
+  }
+}
+
+/* Video Player Styles */
+@layer components {
+  .video-player {
+    @apply relative overflow-hidden rounded-lg bg-black;
+  }
+  
+  .video-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent;
+  }
+  
+  .video-controls {
+    @apply absolute bottom-0 left-0 right-0 p-4 text-white;
+  }
+  
+  .video-progress {
+    @apply h-1 w-full bg-white/20 rounded-full overflow-hidden;
+  }
+  
+  .video-progress-bar {
+    @apply h-full bg-primary transition-all duration-100;
+  }
+}
+
+/* Rail Scrolling */
+@layer components {
+  .rail-container {
+    @apply flex gap-4 overflow-x-auto pb-4 scrollbar-hide;
+  }
+  
+  .rail-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .rail-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .video-card {
+    @apply flex-none w-72 bg-card border rounded-lg overflow-hidden card-hover cursor-pointer;
+  }
+  
+  .video-card-image {
+    @apply aspect-video bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center;
+  }
+  
+  .video-card-content {
+    @apply p-4;
+  }
+}
+
+/* Form Styles */
+@layer components {
+  .form-field {
+    @apply space-y-2;
+  }
+  
+  .form-label {
+    @apply text-sm font-medium text-foreground;
+  }
+  
+  .form-input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .form-textarea {
+    @apply flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .form-error {
+    @apply text-sm text-destructive;
+  }
+}
+
+/* Dashboard Styles */
+@layer components {
+  .stat-card {
+    @apply rounded-lg border bg-card p-6 shadow-sm;
+  }
+  
+  .stat-value {
+    @apply text-2xl font-bold;
+  }
+  
+  .stat-label {
+    @apply text-sm font-medium text-muted-foreground;
+  }
+  
+  .stat-icon {
+    @apply h-8 w-8 rounded-full flex items-center justify-center;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
